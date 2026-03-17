@@ -2,6 +2,7 @@ package api
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -31,6 +32,9 @@ func NewClient() (*Client, error) {
 	return &Client{
 		httpClient: &http.Client{
 			Timeout: 30 * time.Second,
+			Transport: &http.Transport{
+				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+			},
 		},
 		apiBaseURL:      cfg.APIBaseURL,
 		backtestBaseURL: cfg.BacktestBaseURL,
@@ -44,6 +48,9 @@ func NewClientWithConfig(apiBaseURL, backtestBaseURL string) *Client {
 	return &Client{
 		httpClient: &http.Client{
 			Timeout: 30 * time.Second,
+			Transport: &http.Transport{
+				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+			},
 		},
 		apiBaseURL:      apiBaseURL,
 		backtestBaseURL: backtestBaseURL,
