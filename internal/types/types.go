@@ -96,3 +96,18 @@ type EquityPoint struct {
 	Value  float64 `json:"value"`
 	Return float64 `json:"return,omitempty"`
 }
+
+// SSEEvent represents a Server-Sent Event
+type SSEEvent struct {
+	Event string      `json:"event"`
+	Data  interface{} `json:"data"`
+}
+
+// BacktestDayData represents daily backtest data in streaming
+type BacktestDayData struct {
+	Date          string    `json:"date"`
+	PortfolioValue float64   `json:"portfolio_value"`
+	DailyReturn    float64   `json:"daily_return"`
+	Positions      []string  `json:"positions"`
+	Cash           float64   `json:"cash"`
+}

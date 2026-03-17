@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"yin-zi-mao/cmd"
+	"github.com/factor-cat/yin-zi-mao/cmd"
 )
 
 func main() {
