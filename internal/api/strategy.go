@@ -30,7 +30,7 @@ type CreateStrategyRequest struct {
 
 // GetStrategies retrieves all strategies for the current user
 func (c *Client) GetStrategies() ([]Strategy, error) {
-	url := fmt.Sprintf("%s/api/strategies", c.apiBaseURL)
+	url := fmt.Sprintf("%s/strategies", c.apiBaseURL)
 	respBody, err := c.doRequest("GET", url, nil, true)
 	if err != nil {
 		return nil, err
@@ -46,7 +46,7 @@ func (c *Client) GetStrategies() ([]Strategy, error) {
 
 // GetStrategy retrieves a specific strategy by ID
 func (c *Client) GetStrategy(strategyID string) (*Strategy, error) {
-	url := fmt.Sprintf("%s/api/strategies/%s", c.apiBaseURL, strategyID)
+	url := fmt.Sprintf("%s/strategies/%s", c.apiBaseURL, strategyID)
 	respBody, err := c.doRequest("GET", url, nil, true)
 	if err != nil {
 		return nil, err
@@ -62,7 +62,7 @@ func (c *Client) GetStrategy(strategyID string) (*Strategy, error) {
 
 // CreateStrategy creates a new strategy
 func (c *Client) CreateStrategy(req *CreateStrategyRequest) (*Strategy, error) {
-	url := fmt.Sprintf("%s/api/strategies", c.apiBaseURL)
+	url := fmt.Sprintf("%s/strategies", c.apiBaseURL)
 	respBody, err := c.doRequest("POST", url, req, true)
 	if err != nil {
 		return nil, err
@@ -78,7 +78,7 @@ func (c *Client) CreateStrategy(req *CreateStrategyRequest) (*Strategy, error) {
 
 // DeleteStrategy deletes a strategy by ID
 func (c *Client) DeleteStrategy(strategyID string) error {
-	url := fmt.Sprintf("%s/api/strategies/%s", c.apiBaseURL, strategyID)
+	url := fmt.Sprintf("%s/strategies/%s", c.apiBaseURL, strategyID)
 	_, err := c.doRequest("DELETE", url, nil, true)
 	return err
 }

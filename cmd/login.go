@@ -5,6 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/factor-cat/yin-zi-mao/internal/api"
+	"github.com/factor-cat/yin-zi-mao/internal/config"
 )
 
 var (
@@ -31,11 +32,8 @@ var loginCmd = &cobra.Command{
 			return fmt.Errorf("请提供 --password 标志")
 		}
 
-		// Create API client
-		client, err := api.NewClient()
-		if err != nil {
-			return fmt.Errorf("创建 API 客户端失败: %w", err)
-		}
+		// Create API client with default config (for login, don't load existing config)
+		client := api.NewClientWithConfig(config.DefaultAPIURL, config.DefaultBacktestURL)
 
 		// Perform login
 		fmt.Printf("正在登录为 %s...\n", username)
@@ -49,7 +47,7 @@ var loginCmd = &cobra.Command{
 			return fmt.Errorf("保存登录信息失败: %w", err)
 		}
 
-		fmt.Printf("✓ 登录成功！欢迎, %s\n", loginResp.User.Username)
+		fmt.Printf("✓ 登录成功！欢迎, %s\n", loginResp.Username)
 		fmt.Println("✓ 认证令牌已保存")
 		return nil
 	},

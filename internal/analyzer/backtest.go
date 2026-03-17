@@ -6,7 +6,7 @@ import (
 	"math"
 	"strings"
 
-	"yin-zi-mao/internal/types"
+	"github.com/factor-cat/yin-zi-mao/internal/types"
 )
 
 // Analyzer analyzes backtest results
@@ -456,4 +456,16 @@ func (a *Analyzer) CompareWithBenchmark(benchmarkReturn, benchmarkVolatility flo
 	comparison["alpha"] = excessReturn
 
 	return comparison
+}
+
+// Analyze is a convenience function to analyze backtest results
+func Analyze(result *types.BacktestResult) string {
+	a := NewAnalyzer(result)
+	return a.Analyze()
+}
+
+// AnalyzeAsJSON is a convenience function to analyze backtest results as JSON
+func AnalyzeAsJSON(result *types.BacktestResult) (string, error) {
+	a := NewAnalyzer(result)
+	return a.AnalyzeAsJSON()
 }

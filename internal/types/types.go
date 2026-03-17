@@ -20,11 +20,11 @@ type LoginRequest struct {
 
 // LoginResponse represents the login response
 type LoginResponse struct {
-	Token string `json:"token"`
-	User  struct {
-		ID       int    `json:"id"`
-		Username string `json:"username"`
-	} `json:"user"`
+	Token     string `json:"access_token"`
+	TokenType string `json:"token_type"`
+	Username  string `json:"username"`
+	RoleName  string `json:"role_name"`
+	CreatedAt string `json:"created_at"`
 }
 
 // BacktestRequest represents the backtest request

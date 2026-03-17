@@ -45,7 +45,7 @@ type CheckPointsResponse struct {
 
 // GetMembership retrieves the current user's membership information
 func (c *Client) GetMembership() (*MembershipInfo, error) {
-	url := fmt.Sprintf("%s/api/account/membership", c.apiBaseURL)
+	url := fmt.Sprintf("%s/membership/my", c.apiBaseURL)
 	respBody, err := c.doRequest("GET", url, nil, true)
 	if err != nil {
 		return nil, err

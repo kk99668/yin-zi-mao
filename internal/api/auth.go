@@ -16,7 +16,7 @@ func (c *Client) Login(username, password string) (*types.LoginResponse, error) 
 		Password: password,
 	}
 
-	url := fmt.Sprintf("%s/api/auth/login", c.apiBaseURL)
+	url := fmt.Sprintf("%s/auth/login", c.apiBaseURL)
 	respBody, err := c.doRequest("POST", url, loginReq, false)
 	if err != nil {
 		return nil, err

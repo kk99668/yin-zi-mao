@@ -5,6 +5,7 @@
 *.so
 *.dylib
 yin-zi-mao
+yin-zi-mao.exe
 
 # Test binary, built with `go test -c`
 *.test
@@ -12,11 +13,31 @@ yin-zi-mao
 # Output of the go coverage tool
 *.out
 
-# Go workspace file
-go.work
-
 # Dependency directories
 vendor/
 
-# Config directory (contains sensitive data)
-.yin-zi-mao/
+# Go workspace file
+go.work
+
+# Release files
+release/
+*.tar.gz
+*.zip
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config files (sensitive data)
+.env
+*.env
+
+# OMC tool state files
+.omc/

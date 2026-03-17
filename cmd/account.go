@@ -35,34 +35,27 @@ var accountInfoCmd = &cobra.Command{
 			return fmt.Errorf("获取会员信息失败: %w", err)
 		}
 
-		// Get points info
-		points, err := client.GetPoints()
-		if err != nil {
-			return fmt.Errorf("获取积分信息失败: %w", err)
-		}
-
 		// Display combined info
 		fmt.Println("\n【账户信息】")
 		fmt.Println("====================")
-		fmt.Printf("用户名: %s\n", membership.Username)
-		fmt.Printf("用户ID: %d\n", membership.UserID)
-
-		// Membership status
-		fmt.Println("\n【会员状态】")
-		if membership.IsActive {
-			fmt.Printf("等级: %s\n", membership.Level)
-			fmt.Printf("状态: 活跃\n")
-			fmt.Printf("到期时间: %s\n", membership.ExpiresAt)
-			fmt.Printf("剩余天数: %d 天\n", membership.DaysRemaining)
+		if membership.UserID == 0 && membership.Username == "" {
+			fmt.Println("用户名: 访客")
+			fmt.Println("会员状态: 未注册会员")
 		} else {
-			fmt.Printf("状态: 未激活或已过期\n")
-		}
+			fmt.Printf("用户名: %s\n", membership.Username)
+			fmt.Printf("用户ID: %d\n", membership.UserID)
 
-		// Points
-		fmt.Println("\n【积分信息】")
-		fmt.Printf("总积分: %d\n", points.TotalPoints)
-		fmt.Printf("可用积分: %d\n", points.Available)
-		fmt.Printf("已使用积分: %d\n", points.Used)
+			// Membership status
+			fmt.Println("\n【会员状态】")
+			if membership.IsActive {
+				fmt.Printf("等级: %s\n", membership.Level)
+				fmt.Printf("状态: 活跃\n")
+				fmt.Printf("到期时间: %s\n", membership.ExpiresAt)
+				fmt.Printf("剩余天数: %d 天\n", membership.DaysRemaining)
+			} else {
+				fmt.Printf("状态: 未激活或已过期\n")
+			}
+		}
 
 		return nil
 	},
