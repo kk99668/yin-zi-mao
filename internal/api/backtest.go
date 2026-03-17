@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strings"
 
-	"yin-zi-mao/internal/config"
-	"yin-zi-mao/internal/types"
+	"github.com/factor-cat/yin-zi-mao/internal/config"
+	"github.com/factor-cat/yin-zi-mao/internal/types"
 )
 
 // RunBacktest executes a normal backtest

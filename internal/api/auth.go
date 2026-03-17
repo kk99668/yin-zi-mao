@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"yin-zi-mao/internal/config"
-	"yin-zi-mao/internal/types"
+	"github.com/factor-cat/yin-zi-mao/internal/config"
+	"github.com/factor-cat/yin-zi-mao/internal/types"
 )
 
 // Login performs the login API call

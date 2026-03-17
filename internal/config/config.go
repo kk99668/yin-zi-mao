@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"yin-zi-mao/internal/types"
+	"github.com/factor-cat/yin-zi-mao/internal/types"
 )
 
 const (
