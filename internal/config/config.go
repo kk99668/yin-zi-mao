@@ -13,7 +13,7 @@ const (
 	configDir        = ".yin-zi-mao"
 	configFile       = "config.json"
 	DefaultAPIURL    = "https://factor-cat.mzs2025.asia:8003"
-	DefaultBacktestURL = "https://api.yinzimao.com:8001/backtest"
+	DefaultBacktestURL = "https://factor-cat.mzs2025.asia:8001/backtest"
 )
 
 var (
